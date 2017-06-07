@@ -18,6 +18,7 @@ function facebook(horizon, raw_options) {
   const options = Joi.attempt(raw_options, options_schema);
   const client_id = options.id;
   const client_secret = options.secret;
+  const grant_type = options.grant_type || 'client_credentials';
   const provider = options.path;
 
   // Facebook requires inspect requests to use a separate app access token
@@ -28,7 +29,7 @@ function facebook(horizon, raw_options) {
       url.format({ protocol: 'https',
                    host: 'graph.facebook.com',
                    pathname: '/oauth/access_token',
-                   query: { client_id, client_secret, grant_type: 'client_credentials' } }));
+                   query: { client_id, client_secret, grant_type } }));
 
   auth_utils.run_request(make_app_token_request(), (err, body) => {
     const parsed = body && querystring.parse(body);
