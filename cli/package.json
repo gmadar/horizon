@@ -1,11 +1,11 @@
 {
-  "name": "horizon",
-  "version": "2.0.0",
+  "name": "g-horizon-fork",
+  "version": "2.0.1",
   "description": "An open-source developer platform for building realtime, scalable web apps.",
   "main": "src/main.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rethinkdb/horizon.git"
+    "url": "git+https://github.com/gmadar/horizon.git"
   },
   "scripts": {
     "lint": "eslint src test",
